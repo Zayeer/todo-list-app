@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/65b8015b08.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>TooDoo</title>
+</head>
+<body>
+    <div id="content">
+        <nav class="nav-container">
+            <div class="toggle-menu">
+            <i class="fas fa-bars"></i>
+            </div>
+            <div class="page-title">
+                <h1>TooDoo</h1>
+            </div>
+        </nav>
+        <div class="main-content">
+            <div class="projects-board">
+                <form class="project-input-form">
+                    <input type="text" name="project-input" id="project-input" placeholder="Project" maxlength="15">
+                    <i class="fas fa-arrow-alt-circle-down" name="submit"></i>
+                </form>
+                <ul class="projects-list">
+                    <li class="project" data-project="all tasks">All Tasks</li>
+                    <li class="project" data-project="work">Work</li>
+                    <li class="project" data-project="personal">Personal</li>
+                </ul>
+            </div>
+            <div class="tasksBoard">
+                <div class="tasks-input">
+                    <i class="far fa-plus-square" title="Add task"></i>
+                </div>
+                <div class="tasks-list">
+                </div>
+            </div>
+            <div class="task-properties">
+                <form class="task-input-form">
+                    <input type="text" placeholder="Title" id="taskTitle">
+                    <select id="project-select">
+                        <option></option>
+                        <option>Work</option>
+                        <option>Personal</option>
+                    </select>
+                    <select id="priority">
+                        <option selected>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                    <input type="date" id="dueDate">
+                    <textarea placeholder="Describe your task" id="desc"></textarea>
+                </form>
+                <form class="task-update-form">
+                    <h2 id="task-name"></h2>
+                    <h3 id="project-name"></h3>
+                    <select id="update-priority">
+                        <option selected>High</option>
+                        <option>Medium</option>
+                        <option>Low</option>
+                    </select>
+                    <input type="date" id="updateDate">
+                    <textarea placeholder="Describe your task" id="updateDesc"></textarea>
+                </form>
+            </div>
+        </div>
+    </div>
+<script src="main.js"></script>
+</body>
+</html>

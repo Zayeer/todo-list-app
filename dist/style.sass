@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Notable&display=swap')
+
+* 
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+::placeholder
+    color: #ddd
+
+#content
+    min-height: 100vh
+    width: 100vw
+    display: grid
+    grid-template-areas: 'nav' 'main'
+    background-color: #27AEA4
+    color: #ddd
+    overflow: hidden
+
+    .nav-container
+        grid-area: nav
+        display: grid
+        grid-template-columns: 1fr 11fr
+        justify-content: center
+        align-items: center
+        height: 20vh
+
+        .toggle-menu
+            display: flex
+            justify-content: center
+            font-size: 1.5em
+
+        .toggle-menu:hover
+            cursor: pointer
+
+        .page-title
+            display: flex
+            justify-content: center
+            font-size: 2.2em
+            font-family: 'Notable', sans-serif
+        
+    .main-content
+        font-family: 'Dancing Script', cursive
+        grid-area: main
+        display: grid
+        grid-template-columns: 1fr
+        grid-template-areas: 'tb'
+        min-height: 80vh
+        @media (min-width: 768px)
+            grid-template-columns: 1fr 4fr
+
+        .projects-board:before
+            content: ""
+            width: 80vw
+            min-height: 86vh
+            background-color: rgba(5, 5, 5, 0.5)
+            z-index: -10
+            position: absolute
+            left: 35vw
+            border-left: 1px solid #ddd
+            border-top: 1px solid #ddd
+            border-top-left-radius: 5%
+            @media screen and ( min-width: 768px )
+                left: 30vw
+            @media screen and ( min-width: 850px )
+                left: 23vw
+
+        .projects-board
+            position: relative
+            grid-area: pb
+            display: none
+            @media (min-width: 768px)
+                width: 25vw
+            grid-template-columns: 1fr
+            z-index: 10
+            background-color: #27AEA4 
+
+            .project-input-form
+                height: 5vh
+                width: inherit
+                display: flex
+                justify-content: space-between
+                align-items: center
+
+                #project-input
+                    padding: 7px
+                    border-radius: 5px
+                    border-style: none
+                    width: 75%
+                    margin-left: 5px
+                    background-color: #27AEA4
+                    border: 2px solid #ddd
+                    color: #ddd
+
+                #project-input:focus
+                    outline: none
+
+                .fa-arrow-alt-circle-down
+                    font-size: 1.5em
+                    width: 15%
+                    margin-right: 5px
+                    @media (min-width: 800px)
+                        margin-right: 20px
+
+                .fa-arrow-alt-circle-down:hover
+                    cursor: pointer    
+
+            .projects-list
+                min-height: 80vh
+                list-style: none
+                width: 30vw
+                @media (min-width: 768px) and (max-width: 849px)
+                    width: 25vw
+                @media (min-width: 850px)
+                    width: 20vw
+
+                .project
+                    padding: 20px
+                    font-size: 1.5em
+                    display: grid
+                    grid-template-columns: 1fr auto
+
+                    .fa-trash
+                        margin-left: 20px
+                        font-size: 0.7em
+                        align-self: center
+                        visibility: hidden
+
+                .project:hover
+                    background: #ddd
+                    border: 1px solid #27AEA4 
+                    color: #27AEA4
+                    cursor: pointer 
+
+                .active-project
+                    background: #ddd
+                    color: #27AEA4
+                    border: 1px solid #27AEA4
+
+        .displayProjects
+            display: grid
+ 
+
+        .tasksBoard
+            grid-area: tb
+            display: grid
+            grid-template-columns: 1fr
+            grid-template-areas: 'tasksInput' 'tasksList'
+            position: relative
+            grid-gap: 10px
+            width: 100vw
+
+            .tasks-input
+                grid-area: tasksInput
+                width: 100%
+                height: 50px
+                display: flex
+                justify-content: center
+                align-items: center
+
+
+                .fa-plus-square
+                    font-size: 3em
+
+                .fa-plus-square:hover
+                    cursor: pointer
+
+            .tasks-list
+                grid-area: tasksList
+                min-height: calc( 80vh - 50px )
+                display: grid
+                justify-content: center
+                grid-template-columns: 1fr
+                align-content: start
+                grid-gap: 10px
+
+                .task
+                    justify-self: center
+                    display: grid
+                    grid-template-columns: 1fr 10fr 1fr
+                    background-color:#27AEA4
+                    justify-content: center
+                    align-items: center
+                    border: 2px solid #ddd
+                    border-radius: 5%
+                    height: 50px
+                    width: 90%
+                    @media (min-width: 768px)
+                        width: 70%
+
+                    p
+                        font-size: 1.2em
+
+                    .fa-trash-alt
+                        display: grid
+                        justify-content: center
+
+                    .fa-circle, .fa-check-circle, .fa-trash-alt
+                        font-size: 1.5em
+
+                    .fa-circle, .fa-check-circle
+                        text-align: center
+
+                .task:hover
+                    cursor: pointer
+
+                .high-priority
+                    background-color: #bb2124
+                    color: #ddd
+                    border: 2px solid #ddd
+
+                .medium-priority
+                    background-color: #22bb33
+                    color: #ddd
+                    border: 2px solid #ddd
+
+        .task-properties
+            display: none
+            position: absolute
+            bottom: 0
+            height: 100vh
+            width: 100vw
+            overflow: hidden
+            background-color: rgba(0,0,0, 0.5)
+                
+            .task-input-form
+                background-color: #27AEA4
+                border: 5px solid #ddd
+                border-radius: 10%
+                display: grid
+                grid-template-columns: 1fr
+                height: 450px
+                width: 350px
+                grid-gap: 20px
+                padding: 30px
+                color: #ddd
+                justify-content: center
+                margin: 20%
+                z-index: 20
+                @media (min-width: 768px)
+                    margin: 10% 30%
+
+                #taskTitle, #project-select, #dueDate, #priority
+                    height: 5vh
+                    font-size: 1.2em
+                    border: 1px solid #ddd
+                    background-color: #27AEA4
+                    color: #ddd
+
+                #desc
+                    font-size: 1.2em
+                    border: 1px solid #ddd
+                    background-color: #27AEA4
+                    color: #ddd
+
+            .task-update-form
+                background-color: #27AEA4
+                border: 5px solid #ddd
+                border-radius: 10%
+                display: none
+                grid-template-columns: 1fr
+                height: 450px
+                width: 350px
+                grid-gap: 20px
+                padding: 30px
+                color: #ddd
+                justify-content: center
+                margin: 20%
+                @media (min-width: 768px)
+                    margin: 10% 30%
+                
+                
+                #updateDate, #update-priority
+                    height: 5vh
+                    font-size: 1.2em
+                    border: 2px solid #ddd 
+                    background-color: #27AEA4
+                    color: #ddd 
+
+                #task-name
+                    font-size: 3em
+
+                #project-name
+                    font-size: 2em
+                    
+                    *
+                        background-color: #27AEA4
+
+                #updateDesc
+                    font-size: 1.2em
+                    border: 2px solid #ddd 
+                    background-color: #27AEA4
+                    color: #ddd
+
+                #task-name, #project-name
+                    text-align: center    
