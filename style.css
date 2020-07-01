@@ -1,0 +1,327 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Notable&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::placeholder {
+  color: #ddd;
+}
+
+#content {
+  min-height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-areas: "nav" "main";
+  background-color: #27AEA4;
+  color: #ddd;
+  overflow: hidden;
+}
+#content .nav-container {
+  grid-area: nav;
+  display: grid;
+  grid-template-columns: 1fr 11fr;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+}
+#content .nav-container .toggle-menu {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
+}
+#content .nav-container .toggle-menu:hover {
+  cursor: pointer;
+}
+#content .nav-container .page-title {
+  display: flex;
+  justify-content: center;
+  font-size: 2.2em;
+  font-family: "Notable", sans-serif;
+}
+#content .main-content {
+  font-family: "Dancing Script", cursive;
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "tb";
+  min-height: 80vh;
+}
+@media (min-width: 768px) {
+  #content .main-content {
+    grid-template-columns: 1fr 4fr;
+  }
+}
+#content .main-content .projects-board:before {
+  content: "";
+  width: 80vw;
+  min-height: 86vh;
+  background-color: rgba(5, 5, 5, 0.5);
+  z-index: -10;
+  position: absolute;
+  left: 35vw;
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  border-top-left-radius: 5%;
+}
+@media screen and (min-width: 768px) {
+  #content .main-content .projects-board:before {
+    left: 30vw;
+  }
+}
+@media screen and (min-width: 850px) {
+  #content .main-content .projects-board:before {
+    left: 23vw;
+  }
+}
+#content .main-content .projects-board {
+  position: relative;
+  grid-area: pb;
+  display: none;
+  grid-template-columns: 1fr;
+  z-index: 10;
+  background-color: #27AEA4;
+}
+@media (min-width: 768px) {
+  #content .main-content .projects-board {
+    width: 25vw;
+  }
+}
+#content .main-content .projects-board .project-input-form {
+  height: 5vh;
+  width: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#content .main-content .projects-board .project-input-form #project-input {
+  padding: 7px;
+  border-radius: 5px;
+  border-style: none;
+  width: 75%;
+  margin-left: 5px;
+  background-color: #27AEA4;
+  border: 2px solid #ddd;
+  color: #ddd;
+}
+#content .main-content .projects-board .project-input-form #project-input:focus {
+  outline: none;
+}
+#content .main-content .projects-board .project-input-form .fa-arrow-alt-circle-down {
+  font-size: 1.5em;
+  width: 15%;
+  margin-right: 5px;
+}
+@media (min-width: 800px) {
+  #content .main-content .projects-board .project-input-form .fa-arrow-alt-circle-down {
+    margin-right: 20px;
+  }
+}
+#content .main-content .projects-board .project-input-form .fa-arrow-alt-circle-down:hover {
+  cursor: pointer;
+}
+#content .main-content .projects-board .projects-list {
+  min-height: 80vh;
+  list-style: none;
+  width: 30vw;
+}
+@media (min-width: 768px) and (max-width: 849px) {
+  #content .main-content .projects-board .projects-list {
+    width: 25vw;
+  }
+}
+@media (min-width: 850px) {
+  #content .main-content .projects-board .projects-list {
+    width: 20vw;
+  }
+}
+#content .main-content .projects-board .projects-list .project {
+  padding: 20px;
+  font-size: 1.5em;
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+#content .main-content .projects-board .projects-list .project .fa-trash {
+  margin-left: 20px;
+  font-size: 0.7em;
+  align-self: center;
+  visibility: hidden;
+}
+#content .main-content .projects-board .projects-list .project:hover {
+  background: #ddd;
+  border: 1px solid #27AEA4;
+  color: #27AEA4;
+  cursor: pointer;
+}
+#content .main-content .projects-board .projects-list .active-project {
+  background: #ddd;
+  color: #27AEA4;
+  border: 1px solid #27AEA4;
+}
+#content .main-content .displayProjects {
+  display: grid;
+}
+#content .main-content .tasksBoard {
+  grid-area: tb;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "tasksInput" "tasksList";
+  position: relative;
+  grid-gap: 10px;
+  width: 100vw;
+}
+#content .main-content .tasksBoard .tasks-input {
+  grid-area: tasksInput;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#content .main-content .tasksBoard .tasks-input .fa-plus-square {
+  font-size: 3em;
+}
+#content .main-content .tasksBoard .tasks-input .fa-plus-square:hover {
+  cursor: pointer;
+}
+#content .main-content .tasksBoard .tasks-list {
+  grid-area: tasksList;
+  min-height: calc( 80vh - 50px );
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr;
+  align-content: start;
+  grid-gap: 10px;
+}
+#content .main-content .tasksBoard .tasks-list .task {
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  background-color: #27AEA4;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ddd;
+  border-radius: 5%;
+  height: 50px;
+  width: 90%;
+}
+@media (min-width: 768px) {
+  #content .main-content .tasksBoard .tasks-list .task {
+    width: 70%;
+  }
+}
+#content .main-content .tasksBoard .tasks-list .task p {
+  font-size: 1.2em;
+}
+#content .main-content .tasksBoard .tasks-list .task .fa-trash-alt {
+  display: grid;
+  justify-content: center;
+}
+#content .main-content .tasksBoard .tasks-list .task .fa-circle, #content .main-content .tasksBoard .tasks-list .task .fa-check-circle, #content .main-content .tasksBoard .tasks-list .task .fa-trash-alt {
+  font-size: 1.5em;
+}
+#content .main-content .tasksBoard .tasks-list .task .fa-circle, #content .main-content .tasksBoard .tasks-list .task .fa-check-circle {
+  text-align: center;
+}
+#content .main-content .tasksBoard .tasks-list .task:hover {
+  cursor: pointer;
+}
+#content .main-content .tasksBoard .tasks-list .high-priority {
+  background-color: #bb2124;
+  color: #ddd;
+  border: 2px solid #ddd;
+}
+#content .main-content .tasksBoard .tasks-list .medium-priority {
+  background-color: #22bb33;
+  color: #ddd;
+  border: 2px solid #ddd;
+}
+#content .main-content .task-properties {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#content .main-content .task-properties .task-input-form {
+  background-color: #27AEA4;
+  border: 5px solid #ddd;
+  border-radius: 10%;
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 450px;
+  width: 350px;
+  grid-gap: 20px;
+  padding: 30px;
+  color: #ddd;
+  justify-content: center;
+  margin: 20%;
+  z-index: 20;
+}
+@media (min-width: 768px) {
+  #content .main-content .task-properties .task-input-form {
+    margin: 10% 30%;
+  }
+}
+#content .main-content .task-properties .task-input-form #taskTitle, #content .main-content .task-properties .task-input-form #project-select, #content .main-content .task-properties .task-input-form #dueDate, #content .main-content .task-properties .task-input-form #priority {
+  height: 5vh;
+  font-size: 1.2em;
+  border: 1px solid #ddd;
+  background-color: #27AEA4;
+  color: #ddd;
+}
+#content .main-content .task-properties .task-input-form #desc {
+  font-size: 1.2em;
+  border: 1px solid #ddd;
+  background-color: #27AEA4;
+  color: #ddd;
+}
+#content .main-content .task-properties .task-update-form {
+  background-color: #27AEA4;
+  border: 5px solid #ddd;
+  border-radius: 10%;
+  display: none;
+  grid-template-columns: 1fr;
+  height: 450px;
+  width: 350px;
+  grid-gap: 20px;
+  padding: 30px;
+  color: #ddd;
+  justify-content: center;
+  margin: 20%;
+}
+@media (min-width: 768px) {
+  #content .main-content .task-properties .task-update-form {
+    margin: 10% 30%;
+  }
+}
+#content .main-content .task-properties .task-update-form #updateDate, #content .main-content .task-properties .task-update-form #update-priority {
+  height: 5vh;
+  font-size: 1.2em;
+  border: 2px solid #ddd;
+  background-color: #27AEA4;
+  color: #ddd;
+}
+#content .main-content .task-properties .task-update-form #task-name {
+  font-size: 3em;
+}
+#content .main-content .task-properties .task-update-form #project-name {
+  font-size: 2em;
+}
+#content .main-content .task-properties .task-update-form #project-name * {
+  background-color: #27AEA4;
+}
+#content .main-content .task-properties .task-update-form #updateDesc {
+  font-size: 1.2em;
+  border: 2px solid #ddd;
+  background-color: #27AEA4;
+  color: #ddd;
+}
+#content .main-content .task-properties .task-update-form #task-name, #content .main-content .task-properties .task-update-form #project-name {
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */
