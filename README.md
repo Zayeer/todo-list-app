@@ -10,3 +10,5 @@ Skills used:
 * JS/ES6
 * date-fns library
 * Webpack 4
+
+[View Online](https://zayeer.github.io/todo-list-app/)
